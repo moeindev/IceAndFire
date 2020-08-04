@@ -79,4 +79,6 @@ dependencies {
     //android
     implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
     kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+    //coil
+    implementation "io.coil-kt:coil:0.11.0"
 }
