@@ -61,8 +61,8 @@ dependencies {
     // Annotation processor
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     //paging
-    def paging_version = "2.1.2"
-    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+//    def paging_version = "2.1.2"
+//    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
     def nav_version = "2.3.0"
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
