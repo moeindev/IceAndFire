@@ -1,6 +1,7 @@
 package ir.moeindeveloper.iceandfire.di.module
 
 import android.content.Context
+import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -77,6 +78,12 @@ class IceAndFireModule {
             .build()
     }
 
+
+    @Provides
+    @Singleton
+    fun provideSharedPreference(@ApplicationContext context: Context): SharedPreferences {
+        return context.getSharedPreferences("settings_pref",Context.MODE_PRIVATE)
+    }
 
     @Provides
     @Singleton

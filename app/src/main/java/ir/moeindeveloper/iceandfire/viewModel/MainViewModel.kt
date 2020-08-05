@@ -9,12 +9,15 @@ import ir.moeindeveloper.iceandfire.data.pojo.books.Book
 import ir.moeindeveloper.iceandfire.data.pojo.characters.Character
 import ir.moeindeveloper.iceandfire.data.pojo.houses.House
 import ir.moeindeveloper.iceandfire.data.pojo.quote.Quote
+import ir.moeindeveloper.iceandfire.data.preference.SettingsPreference
 import ir.moeindeveloper.iceandfire.data.repository.MainRepository
+import ir.moeindeveloper.iceandfire.utils.character.QuoteCharacter
 import ir.moeindeveloper.iceandfire.utils.network.Resource
 import kotlinx.coroutines.launch
 
 class MainViewModel @ViewModelInject
-constructor(private val mainRepository: MainRepository): ViewModel() {
+constructor(private val mainRepository: MainRepository,
+            val settings: SettingsPreference): ViewModel() {
 
     private val _quote = MutableLiveData<Resource<Quote>>()
 
@@ -34,7 +37,11 @@ constructor(private val mainRepository: MainRepository): ViewModel() {
 
 
     init {
-        getQuote()
+        if (settings.isCharacterSaved()){
+            getFilteredQuote()
+        } else {
+            getQuote()
+        }
         getBooks()
         getCharacters()
         getHouses()
@@ -47,6 +54,22 @@ constructor(private val mainRepository: MainRepository): ViewModel() {
             _quote.postValue(Resource.loading(null))
 
             mainRepository.getQuotes().let {response ->
+                if (response.isSuccessful) {
+                    _quote.postValue(Resource.success(response.body()))
+                } else _quote.postValue(Resource.error(response.errorBody().toString(),null))
+            }
+        }
+    }
+
+
+    fun getFilteredQuote(){
+        if (settings.getCharacter() == QuoteCharacter.NONE) return
+
+        viewModelScope.launch {
+
+            _quote.postValue(Resource.loading(null))
+
+            mainRepository.filterQuotes(settings.getCharacter().queryName).let { response ->
                 if (response.isSuccessful) {
                     _quote.postValue(Resource.success(response.body()))
                 } else _quote.postValue(Resource.error(response.errorBody().toString(),null))
