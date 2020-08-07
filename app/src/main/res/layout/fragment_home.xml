@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.HomeFragment">
+
+
+    <ScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="none"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/quote_container"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/AppTheme.quoteContainer"
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/quote_image"
+                        tools:src="@drawable/char_default"
+                        android:alpha="0.4"
+                        android:scaleType="fitXY"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        android:id="@+id/quote_text"
+                        tools:text="@string/app_name"
+                        style="@style/AppTheme.quoteText"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/quote_character"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        app:layout_constraintTop_toBottomOf="@id/quote_text"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        style="@style/AppTheme.characterText"
+                        android:id="@+id/quote_character"
+                        tools:text="@string/app_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/quote_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/section_character_list"
+                style="@style/AppTheme.sectionTitles"
+                android:id="@+id/section_character_title"
+                android:text="@string/character_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                app:layout_constraintTop_toTopOf="@id/section_character_title"
+                app:layout_constraintBottom_toBottomOf="@id/section_character_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/more"
+                style="@style/AppTheme.moreButton"
+                android:id="@+id/section_character_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/section_character_list"
+                app:layout_constraintTop_toBottomOf="@id/section_character_title"
+                app:layout_constraintBottom_toTopOf="@id/section_house_title"
+                tools:listitem="@layout/item_multiple"
+                tools:itemCount="1"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"/>
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/section_character_list"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/section_house_list"
+                style="@style/AppTheme.sectionTitles"
+                android:id="@+id/section_house_title"
+                android:text="@string/houses_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                app:layout_constraintTop_toTopOf="@id/section_house_title"
+                app:layout_constraintBottom_toBottomOf="@id/section_house_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/more"
+                style="@style/AppTheme.moreButton"
+                android:id="@+id/section_house_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/section_house_list"
+                app:layout_constraintTop_toBottomOf="@id/section_house_title"
+                app:layout_constraintBottom_toTopOf="@id/section_book_title"
+                tools:listitem="@layout/item_multiple"
+                tools:itemCount="1"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"/>
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/section_house_list"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/section_book_list"
+                style="@style/AppTheme.sectionTitles"
+                android:id="@+id/section_book_title"
+                android:text="@string/books_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                app:layout_constraintTop_toTopOf="@id/section_book_title"
+                app:layout_constraintBottom_toBottomOf="@id/section_book_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/more"
+                style="@style/AppTheme.moreButton"
+                android:id="@+id/section_book_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/section_book_list"
+                app:layout_constraintTop_toBottomOf="@id/section_book_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:listitem="@layout/item_multiple"
+                tools:itemCount="1"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

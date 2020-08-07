@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ice And Fire</string>
+    <string name="character_title">Characters</string>
+    <string name="books_title">Books</string>
+    <string name="houses_title">Houses</string>
+    <string name="more">More</string>
 </resources>

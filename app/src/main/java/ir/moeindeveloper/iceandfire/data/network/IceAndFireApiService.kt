@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface IceAndFireApiService {
 
     @GET("api/books")
-    suspend fun getBooks(): Response<List<Book>>
+    suspend fun getBooks(@Query("page") page: Int? = null): Response<List<Book>>
 
 
     @GET("api/books/{id}")
@@ -21,7 +21,7 @@ interface IceAndFireApiService {
 
 
     @GET("api/characters")
-    suspend fun getCharacters(): Response<List<Character>>
+    suspend fun getCharacters(@Query("page") page: Int? = null): Response<List<Character>>
 
     @GET("api/characters")
     suspend fun filterCharacters(
@@ -36,7 +36,7 @@ interface IceAndFireApiService {
 
 
     @GET("api/houses")
-    suspend fun getHouses(): Response<List<House>>
+    suspend fun getHouses(@Query("page") page: Int? = null): Response<List<House>>
 
     @GET("api/houses/{id}")
     suspend fun getHouse(@Path("id") houseID: Int): Response<House>

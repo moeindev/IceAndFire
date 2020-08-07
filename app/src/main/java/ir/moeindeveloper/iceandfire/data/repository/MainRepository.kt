@@ -13,11 +13,11 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val iceAndFireApiHelper: IceAndFireApiHelper,
                                          private val quotesApiHelper: QuotesApiHelper) {
-    suspend fun getBooks(): Response<List<Book>> = iceAndFireApiHelper.getBooks()
+    suspend fun getBooks(page: Int? = null): Response<List<Book>> = iceAndFireApiHelper.getBooks(page)
 
     suspend fun getBook(bookID: Int): Response<Book> = iceAndFireApiHelper.getBook(bookID)
 
-    suspend fun getCharacters(): Response<List<Character>> = iceAndFireApiHelper.getCharacters()
+    suspend fun getCharacters(page: Int? = null): Response<List<Character>> = iceAndFireApiHelper.getCharacters(page)
 
     suspend fun filterCharacters(
         name: String?,
@@ -28,7 +28,7 @@ class MainRepository @Inject constructor(private val iceAndFireApiHelper: IceAnd
 
     suspend fun getCharacter(characterID: Int): Response<Character> = iceAndFireApiHelper.getCharacter(characterID)
 
-    suspend fun getHouses(): Response<List<House>> = iceAndFireApiHelper.getHouses()
+    suspend fun getHouses(page: Int? = null): Response<List<House>> = iceAndFireApiHelper.getHouses(page)
 
     suspend fun getHouse(houseID: Int): Response<House> = iceAndFireApiHelper.getHouse(houseID)
 

@@ -8,7 +8,7 @@ import retrofit2.Response
 interface IceAndFireApiHelper {
 
 
-    suspend fun getBooks(): Response<List<Book>>
+    suspend fun getBooks(page: Int? = null): Response<List<Book>>
 
     suspend fun getBook(
         bookID: Int
@@ -16,7 +16,7 @@ interface IceAndFireApiHelper {
 
 
 
-    suspend fun getCharacters(): Response<List<Character>>
+    suspend fun getCharacters(page: Int? = null): Response<List<Character>>
 
 
     suspend fun filterCharacters(
@@ -28,7 +28,7 @@ interface IceAndFireApiHelper {
 
     suspend fun getCharacter(characterID: Int): Response<Character>
 
-    suspend fun getHouses(): Response<List<House>>
+    suspend fun getHouses(page: Int? = null): Response<List<House>>
 
     suspend fun getHouse(houseID: Int): Response<House>
 }

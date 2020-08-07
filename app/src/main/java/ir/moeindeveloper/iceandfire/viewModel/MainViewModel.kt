@@ -35,6 +35,10 @@ constructor(private val mainRepository: MainRepository,
 
     val houses : LiveData<Resource<List<House>>> get() = _houses
 
+    val booksPage = MutableLiveData<Int>()
+    val charactersPage = MutableLiveData<Int>()
+    val housesPage = MutableLiveData<Int>()
+
 
     init {
         if (settings.isCharacterSaved()){
@@ -82,7 +86,7 @@ constructor(private val mainRepository: MainRepository,
 
             _books.postValue(Resource.loading(null))
 
-            mainRepository.getBooks().let {response ->
+            mainRepository.getBooks(booksPage.value).let {response ->
                 if (response.isSuccessful) {
                     _books.postValue(Resource.success(response.body()))
                 } else _books.postValue(Resource.error(response.errorBody().toString(),null))
@@ -95,7 +99,7 @@ constructor(private val mainRepository: MainRepository,
 
             _characters.postValue(Resource.loading(null))
 
-            mainRepository.getCharacters().let {response ->
+            mainRepository.getCharacters(charactersPage.value).let {response ->
                 if (response.isSuccessful) {
                     _characters.postValue(Resource.success(response.body()))
                 } else _characters.postValue(Resource.error(response.errorBody().toString(),null))
@@ -107,7 +111,7 @@ constructor(private val mainRepository: MainRepository,
         viewModelScope.launch {
             _houses.postValue(Resource.loading(null))
 
-            mainRepository.getHouses().let {response ->
+            mainRepository.getHouses(housesPage.value).let {response ->
                 if (response.isSuccessful) {
                     _houses.postValue(Resource.success(response.body()))
                 } else _houses.postValue(Resource.error(response.errorBody().toString(),null))

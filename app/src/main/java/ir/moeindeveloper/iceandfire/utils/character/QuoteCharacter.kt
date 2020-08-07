@@ -3,7 +3,7 @@ package ir.moeindeveloper.iceandfire.utils.character
 import androidx.annotation.DrawableRes
 import ir.moeindeveloper.iceandfire.R
 
-enum class QuoteCharacter(val characterName: String, val queryName: String, @DrawableRes image: Int?) {
+enum class QuoteCharacter(val characterName: String, val queryName: String, @DrawableRes val image: Int) {
 
     NONE("","", R.drawable.char_default),
     BRONN("Bronn","bronn", R.drawable.char_bronn),
