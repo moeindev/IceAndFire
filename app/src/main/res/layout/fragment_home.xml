@@ -23,7 +23,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 style="@style/AppTheme.quoteContainer"
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                android:layout_height="@dimen/quote_height">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -84,7 +84,7 @@
                 tools:listitem="@layout/item_multiple"
                 tools:itemCount="1"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"/>
+                android:layout_height="wrap_content"/>
 
             <TextView
                 app:layout_constraintTop_toBottomOf="@id/section_character_list"
@@ -112,7 +112,7 @@
                 tools:listitem="@layout/item_multiple"
                 tools:itemCount="1"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"/>
+                android:layout_height="wrap_content"/>
 
             <TextView
                 app:layout_constraintTop_toBottomOf="@id/section_house_list"
@@ -139,7 +139,7 @@
                 tools:listitem="@layout/item_multiple"
                 tools:itemCount="1"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"/>
+                android:layout_height="wrap_content"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

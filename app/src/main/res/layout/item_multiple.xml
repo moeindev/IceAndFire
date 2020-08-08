@@ -6,8 +6,8 @@
     android:focusable="true"
     style="@style/AppTheme.characterItem"
     android:layout_margin="5dp"
-    android:layout_width="100dp"
-    android:layout_height="100dp">
+    android:layout_width="@dimen/item_multiple_width"
+    android:layout_height="@dimen/item_multiple_height">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

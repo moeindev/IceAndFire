@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_multiple_width">240dp</dimen>
+    <dimen name="item_multiple_height">110dp</dimen>
+
+    <dimen name="quote_height">300dp</dimen>
+</resources>
