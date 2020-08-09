@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.api.load
 import coil.transform.BlurTransformation
@@ -131,6 +132,14 @@ class HomeFragment : Fragment(), CharacterClickListener, HouseClickListener, Boo
         observeVM()
 
         setupViews()
+
+
+        binding.sectionCharacterMore.setOnClickListener {
+            //action_homeFragment_to_charactersFragment
+            val characters = HomeFragmentDirections.actionHomeFragmentToCharactersFragment()
+
+            findNavController().navigate(characters)
+        }
 
         return binding.root
     }

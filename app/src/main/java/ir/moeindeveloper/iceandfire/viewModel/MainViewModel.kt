@@ -5,6 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import ir.moeindeveloper.iceandfire.data.paging.CharacterDataSourceFactory
 import ir.moeindeveloper.iceandfire.data.pojo.books.Book
 import ir.moeindeveloper.iceandfire.data.pojo.characters.Character
 import ir.moeindeveloper.iceandfire.data.pojo.houses.House
@@ -17,7 +20,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel @ViewModelInject
 constructor(private val mainRepository: MainRepository,
-            val settings: SettingsPreference): ViewModel() {
+            private val settings: SettingsPreference): BaseViewModel() {
 
     private val _quote = MutableLiveData<Resource<Quote>>()
 
@@ -93,6 +96,19 @@ constructor(private val mainRepository: MainRepository,
             }
         }
     }
+
+
+    private val characterFactory = CharacterDataSourceFactory(mainRepository,ioScope)
+
+    val allCharacters = LivePagedListBuilder(characterFactory,pagedListConfig()).build()
+
+    fun filterCharacters(){}
+
+    private fun pagedListConfig() = PagedList.Config.Builder()
+        .setInitialLoadSizeHint(5)
+        .setEnablePlaceholders(false)
+        .setPageSize(5 * 2)
+        .build()
 
     fun getCharacters(){
         viewModelScope.launch {

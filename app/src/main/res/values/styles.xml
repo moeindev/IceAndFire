@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -44,8 +44,8 @@
     </style>
 
     <style name="AppTheme.characterItem" parent="Widget.MaterialComponents.CardView">
-        <item name="cardElevation">5dp</item>
-        <item name="cardMaxElevation">7dp</item>
+        <item name="cardElevation">3dp</item>
+        <item name="cardMaxElevation">5dp</item>
         <item name="cardCornerRadius">10dp</item>
     </style>
 

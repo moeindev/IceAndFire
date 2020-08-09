@@ -4,4 +4,9 @@
     <dimen name="item_multiple_height">100dp</dimen>
 
     <dimen name="quote_height">260dp</dimen>
+
+    <dimen name="item_character_height">50dp</dimen>
+
+    <dimen name="item_character_img_width">40dp</dimen>
+    <dimen name="item_character_img_height">40dp</dimen>
 </resources>

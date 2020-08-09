@@ -20,6 +20,8 @@ data class Character(
     val father: String,
     @SerializedName("mother")
     val mother: String,
+    @SerializedName("gender")
+    val gender: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("playedBy")

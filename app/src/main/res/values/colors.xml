@@ -3,4 +3,6 @@
     <color name="colorPrimary">#616161</color>
     <color name="colorPrimaryDark">#373737</color>
     <color name="colorAccent">#673ab7</color>
+
+    <color name="colorGenderIcon">@android:color/secondary_text_light</color>
 </resources>
